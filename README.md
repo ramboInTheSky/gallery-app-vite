@@ -49,7 +49,7 @@ just because I am sick of Arial and Roboto :)
 3. **`utils`**: Contains helper functions for API requests.
 
 > NOTES:
-> I have reused a Gallery component I have made a while ago I hope you don't mind it.
+> I have reused (adapted really) a Gallery component I have made a while ago. I hope you don't mind it.
 
 >I've taken a bit of a pragmatic approach (some might say cheeky) by encapsulating all side effects and logic related to a page component within its corresponding <Component>Logic.ts file. This keeps things tidy and straightforward. Of course, a more enterprise-level approach would involve separating concerns further by dedicating distinct modules for data fetching, state management, and storage. That would make the project more scalable and maintainable in the long run. But hey, not a lot can be done in 4 hours!!
 
