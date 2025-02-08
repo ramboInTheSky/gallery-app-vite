@@ -1,24 +1,43 @@
 # Gallery with Infinite Scroll and Edit 
 
-This project is a React application that implements an Gallery using:
+This project is a React application that implements an Gallery featuring:
 - **React Query** for data fetching and state management
 - **Emotion** for CSS-in-JS styling
 - **Intersection Observer** for infinite scroll
 - **Picsum Photos API** for dynamic image data
+- **Beautiful UI** (somehow ironic)
 - **Edit Page**: Navigate to an edit page to manipulate image settings (e.g., size, grayscale).
 
-### Key Features
-- **Vite**: Just for the fun of trying something new :)
-- **React Router 7**:Handles routing.
-- **Infinite Scroll**: Dynamically load more images as you scroll down.
-- **Responsive Grid**: Images are displayed in a flexible grid layout.
-- **React Query**: Handles API calls, caching, and request deduplication.
-- **Emotion**: Styled components for modular and reusable styles.
-- **Jest**: to Unit Test the application. (I had troubles configuring Vitest and I didn't want to waste time on it)
-- **Playwright**: E2E testing done right (and fast) :)
-- **Custom fonts**: just because I am sick of Arial and Roboto :)
+---
 
-> I have opted for CSS-in-JS because I am a fan of snapshot-testing the styles, this helps refactor styles and upgrading libraries (especially design-systems although this is not the case) knowing what has actually changed in the actual manifestation of the app.
+## Core Technologies & Dependencies
+
+### Vite
+much faster than Webpack for a lot of things I am starting to like it :)
+### React: Frontend framework
+I have used v18.3.1 although 19 has been stable for 2 months but libraries usually take time to catch-up and also I am not comfortable using it before reading everything about it (there are breaking changes) and already in v18 Suspense is not really finished (in fact I have not used it). Same goes for RSC, I could have set it up but I think it woud have been overkill for this project besides, it shows its best when in conjunction with NextJS in my opinion.
+### React Router: Client-side routing
+I like the Outlet feature, it reminds me of Remix, it allows SPAs to have a fixed template (eg header and footer)
+### React Query: Data fetching & caching
+I have used react-query as I fell in love with it lately because it simplifies API error handling, caching and fetching states.
+I am also using a persister to save the dehidrated data in the localStorage to allow for refreshing any page at any time ith the peace of mind that the scroll position can be restored. (essentially if the user refreshes the Edit page and then navigates back to the gallery page, the react-query cache would not be persisted otherwise)
+### Axios: API requests
+Because it is the de-facto champion for XHR, it provides abortController (which I haven't used though) and interceptors OOTB
+### Emotion: CSS-in-JS for styling
+generally a tad ahead of styled-components, not as quick as Tailwind but better for larger teams.
+I have opted for CSS-in-JS because I am a fan of snapshot-testing the styles, this helps refactor styles and upgrading libraries (especially design-systems although this is not the case) knowing what has actually changed in the actual manifestation of the app.
+### husky + commitlint
+this is to provide consistent commit messages conforming to conventional commits
+### Playwright
+E2E testing done right (and blazing fast) with AXE for accessibility testing.
+### Dotenv
+to handle .env files for different environments.
+### Infinite Scroll
+Dynamically load more images as you scroll down. Amazon shopping has probably spoiled me in regards to pagination.
+### Responsive Grid
+ Images are displayed in a flexible grid layout.
+### Custom fonts
+just because I am sick of Arial and Roboto :)
 
 ---
 
@@ -29,7 +48,8 @@ This project is a React application that implements an Gallery using:
 2. **`components/Edit`**: Handles the editing functionality for individual images.
 3. **`utils`**: Contains helper functions for API requests.
 
-> I have opted for a simplified file structure where all the side-effect and logic beloinging to a page component is encapsulated in the `<Component>Logic.ts` file for simplicity. an alternative approach would have been to create separate fetching utils and separate storage utils making the whole project less readable
+> NOTE: 
+>"I've taken a bit of a pragmatic approach (some might say cheeky) by encapsulating all side effects and logic related to a page component within its corresponding <Component>Logic.ts file. This keeps things tidy and straightforward. Of course, a more enterprise-level approach would involve separating concerns further by dedicating distinct modules for data fetching, state management, and storage. That would make the project more scalable and maintainable in the long run. But hey, not a lot can be done in 4 hours!!
 
 ### Setup, Installation and Run instructions
 1. Clone the repository:
@@ -97,3 +117,16 @@ This project is a React application that implements an Gallery using:
    git push
    ```
    > A pre-push hook will perform e2e tests 
+
+
+## Final Notes
+I have spent around 5 hours (cumulatively) on this and there are a lot of things I would like to change, for instance:
+
+- using scrset for images instead of the hacky util
+- streamline the file structure
+- write more tests
+- separate the e2e tess by concern
+- make the whole site more accessible and test it with screenreaders
+- find a better solution for the env_vars in Vite
+- make some utils and a component wrapper (like in a jest.setup.ts) to make tests more readable 
+- try to reuse some components around in a design-system style (although I think a lot could be reused here)

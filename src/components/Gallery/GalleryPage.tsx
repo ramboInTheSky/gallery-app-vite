@@ -76,7 +76,7 @@ const GalleryPage: React.FC = () => {
         {images.map((img) => (
           <GalleryCard key={img.id} onClick={() => handleImageClick(img.id)}>
             <GalleryImage
-              src={swapImageParamsForThumbnail(img.download_url)}
+              src={swapImageParamsForThumbnail(img.download_url)} // to reduce the image size
               alt={img.author}
               loading="lazy" // Load images only if they are in the viewport
             />

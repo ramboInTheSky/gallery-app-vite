@@ -10,7 +10,6 @@ export default defineConfig({
       "STALE_TIME",
       "CACHE_TIME",
       "LOCAL_STORAGE_EDIT_SETTINGS_PREFIX",
-      "SESSION_STORAGE_SCROLL_POSITION_KEY",
     ]),
   ],
 });
