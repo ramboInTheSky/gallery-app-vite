@@ -7,6 +7,7 @@ This project is a React application that implements an Gallery featuring:
 - **Picsum Photos API** for dynamic image data
 - **Beautiful UI** (somehow ironic)
 - **Edit Page**: Navigate to an edit page to manipulate image settings (e.g., size, grayscale).
+- **Download image**: Click on the previewed image to see it in full resolution in a separate tab and download it via browser default behaviour (save image).
 
 ---
 
