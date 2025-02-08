@@ -31,6 +31,7 @@
     "vitest": "^3.0.3"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.10.1",
     "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.6.0",
     "@emotion/jest": "^11.13.0",

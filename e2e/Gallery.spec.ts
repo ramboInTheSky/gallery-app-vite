@@ -1,3 +1,4 @@
+import { AxeBuilder } from "@axe-core/playwright";
 import { test, expect } from "@playwright/test";
 
 test.describe("Gallery Page E2E Tests", () => {
@@ -56,5 +57,11 @@ test.describe("Gallery Page E2E Tests", () => {
 
     const noMore = page.locator("text=No more images to load.");
     await expect(noMore).toBeVisible();
+  });
+
+  test("should have no automatically detectable accessibility issues", async ({
+    page,
+  }) => {
+    await new AxeBuilder({ page }).analyze();
   });
 });
